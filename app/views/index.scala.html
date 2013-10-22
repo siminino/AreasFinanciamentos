@@ -1,7 +1,15 @@
-@(message: String)
+@(persons: List[Person])
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message, style = "Java")
-    
+@main("Areas Financiamentos") {
+    <h3>Clientes</h3>
+    <ul class="persons">
+    @for(person:Person <- persons) {
+        <li>
+            <a href="@routes.Application.detailPerson(person.id)">@person.name</a>
+            - @person.cpf
+        </li>
+    }
+    </ul> 
+
+    <a href="@routes.Application.addPersonGet()">Adicionar Cliente</a>
 }

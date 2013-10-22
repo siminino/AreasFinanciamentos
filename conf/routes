@@ -4,6 +4,12 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+GET     /person/add/                 controllers.Application.addPersonGet()
+POST    /person/add/                 controllers.Application.addPersonPost()
+GET     /person/:personId/           controllers.Application.detailPerson(personId: Long)
+GET     /person/:personId/buy/add/   controllers.Application.addBuyGet(personId: Long)
+POST    /person/:personId/buy/add/   controllers.Application.addBuyPost(personId: Long)
+GET     /person/:personId/buy/:buyId/   controllers.Application.detailBuy(personId: Long, buyId: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

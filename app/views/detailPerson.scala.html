@@ -1,0 +1,39 @@
+@(person: Person, buys: List[Buy])
+
+@main("Areas Financiamentos") {
+    <h3>Cliente</h3>
+
+    <table>
+        <tr>
+            <td>Nome:</td>
+            <td>@person.name</td>
+        </tr>
+        <tr>
+            <td>CPF:</td>
+            <td>@person.cpf</td>
+        </tr>
+        <tr>
+            <td>Data de aniversário:</td>
+            <td>@person.birthDate</td>
+        </tr>
+        <tr>
+            <td>Salario:</td>
+            <td>@person.salary</td>
+        </tr>
+        <tr>
+            <td>Data de Admissão no último emprego:</td>
+            <td>@person.admissionDate</td>
+        </tr>
+    </table>
+
+    <h4>Emprestimos</h4>
+    <ul class="buys">
+    @for(buy:Buy <- buys) {
+        <li>
+            <a href="@routes.Application.detailBuy(person.id, buy.id)">@buy.name</a>
+        </li>
+    }
+    </ul> 
+
+    <a href="@routes.Application.addBuyGet(person.id)">Adicionar Novo Emprestimo</a>
+}

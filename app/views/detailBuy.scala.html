@@ -1,0 +1,33 @@
+@(person: Person, buy: Buy)
+
+@main("Areas Financiamentos") {
+    <a href="@routes.Application.detailPerson(person.id)">@person.name</a>
+
+    <h3>Emprestimo @buy.name</h3>
+    <table>
+        <tr>
+            <td>Data de aniversário:</td>
+            <td>@person.birthDate</td>
+        </tr>
+        <tr>
+            <td>Salario:</td>
+            <td>@person.salary</td>
+        </tr>
+        <tr>
+            <td>Data de Admissão no último emprego:</td>
+            <td>@person.admissionDate</td>
+        </tr>
+        <tr>
+            <td>Valor da compra</td>
+            <td>@buy.valueOfBuy</td>
+        </tr>
+        <tr>
+            <td>Porcentagem do emprestimo</td>
+            <td>@buy.percentageLoan</td>
+        </tr>
+        <tr>
+            <td>Parcelas</td>
+            <td>@buy.plots</td>
+        </tr>
+    </table>
+}

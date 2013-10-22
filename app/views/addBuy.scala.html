@@ -1,0 +1,12 @@
+@(buyForm: Form[Buy], person: Person)
+
+@main("Areas Financiamentos") {
+    <h3>Novo Emprestimo</h3>
+    @helper.form(action = routes.Application.addBuyPost(person.id)) {
+        @helper.inputText(buyForm("name"))
+        @helper.inputText(buyForm("valueOfBuy"))
+        @helper.inputText(buyForm("percentageLoan"))
+        @helper.inputText(buyForm("plots"))
+        <input type="submit">
+    }
+}

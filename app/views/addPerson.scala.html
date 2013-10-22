@@ -1,0 +1,13 @@
+@(personForm: Form[Person])
+
+@main("Areas Financiamentos") {
+    <h3>Novo Cliente</h3>
+    @helper.form(action = routes.Application.addPersonPost()) {
+        @helper.inputText(personForm("name"))
+        @helper.inputText(personForm("cpf"))
+        @helper.inputText(personForm("birthDate"))
+        @helper.inputText(personForm("salary"))
+        @helper.inputText(personForm("admissionDate"))
+        <input type="submit">
+    }
+}
