@@ -20,7 +20,12 @@ public class Application extends Controller {
     }
 
     public static Result addPersonPost() {
-        Person person = Form.form(Person.class).bindFromRequest().get();
+        Form<Person> personForm = Form.form(Person.class);
+        personForm = personForm.bindFromRequest();
+        if (personForm.hasErrors()) {
+            return badRequest(addPerson.render(personForm));
+        }
+        Person person = personForm.get();
         person.save();
         return redirect(routes.Application.index());
     }
@@ -44,7 +49,12 @@ public class Application extends Controller {
 
     public static Result addBuyPost(Long personId) {
         Person person = Person.find.byId(personId);
-        Buy buy = Form.form(Buy.class).bindFromRequest().get();
+        Form<Buy> buyForm = Form.form(Buy.class);
+        buyForm = buyForm.bindFromRequest();
+        if (buyForm.hasErrors()) {
+            return badRequest(addBuy.render(buyForm, person));
+        }
+        Buy buy = buyForm.get();
         buy.person = person;
         buy.save();
         return redirect(routes.Application.detailPerson(person.id));
