@@ -3,11 +3,11 @@
 @main("Areas Financiamentos") {
     <h3>Novo Cliente</h3>
     @helper.form(action = routes.Application.addPersonPost()) {
-        @helper.inputText(personForm("name"))
-        @helper.inputText(personForm("cpf"))
-        @helper.inputText(personForm("birthDate"))
-        @helper.inputText(personForm("salary"))
-        @helper.inputText(personForm("admissionDate"))
+        @helper.inputText(personForm("name"), '_label -> "Nome:", '_showConstraints -> false)
+        @helper.inputText(personForm("cpf"), '_label -> "CPF:", '_showConstraints -> false)
+        @helper.inputText(personForm("birthDate"), '_label -> "Data de aniversário:", 'placeholder -> "DD/MM/AAAA", '_showConstraints -> false)
+        @helper.inputText(personForm("salary"), '_label -> "Salário:", '_showConstraints -> false)
+        @helper.inputText(personForm("admissionDate"), '_label -> "Data de admissão no último emprego:", 'placeholder -> "DD/MM/AAAA", '_showConstraints -> false)
         <input type="submit">
     }
 }

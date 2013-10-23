@@ -25,7 +25,8 @@ public class Person extends Model {
     @Constraints.Min(0)
     public double salary;
     @Constraints.Required
-    public int admissionDate;
+    @Formats.DateTime(pattern="dd/MM/yyyy")
+    public Date admissionDate;
 
     public static Finder<Long,Person> find = new Finder<Long,Person>(
         Long.class, Person.class

@@ -3,10 +3,10 @@
 @main("Areas Financiamentos") {
     <h3>Novo Emprestimo</h3>
     @helper.form(action = routes.Application.addBuyPost(person.id)) {
-        @helper.inputText(buyForm("name"))
-        @helper.inputText(buyForm("valueOfBuy"))
-        @helper.inputText(buyForm("percentageLoan"))
-        @helper.inputText(buyForm("plots"))
+        @helper.inputText(buyForm("name"), '_label -> "Nome:", '_showConstraints -> false)
+        @helper.inputText(buyForm("valueOfBuy"), '_label -> "Valor da Compra:", '_showConstraints -> false)
+        @helper.inputText(buyForm("percentageLoan"), '_label -> "Porcentagem do emprestimo:", '_help -> "Porcentagem máxima 70%", '_showConstraints -> false)
+        @helper.inputText(buyForm("plots"), '_label -> "Parcelas:", '_showConstraints -> false)
         <input type="submit">
     }
 }

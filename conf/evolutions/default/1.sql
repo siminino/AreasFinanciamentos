@@ -19,7 +19,7 @@ create table person (
   cpf                       varchar(255),
   birth_date                timestamp,
   salary                    double,
-  admission_date            integer,
+  admission_date            timestamp,
   constraint pk_person primary key (id))
 ;
 
